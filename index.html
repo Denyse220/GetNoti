@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style type="text/css">
+		
+	/*	body {
+  background: #c8d5d6;
+  font-family: raleway;
+  color: rgb(20, 6, 6);
+  margin: 0;
+}
+*/
+
+.popup .content {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%,-150%) scale(0);
+ width: 700px;
+ height: 450px;
+ z-index: 2;
+ text-align: center;
+ padding: px;
+ border-radius: 5px;
+ background: #faffff;
+ box-shadow:  38px 38px 56px #1e1e1e, 
+             -25px -25px 38px #1e1e1e;
+ z-index: 1;
+}
+
+.popup .close-btn {
+ position: absolute;
+ right: 20px;
+ top: 20px;
+ width: 30px;
+ height: 30px;
+ color: rgb(22, 6, 6);
+ font-size: 30px;
+ border-radius: 50%;
+ padding: 2px 5px 7px 5px;
+ background: #87dde9;
+ box-shadow:  5px 5px 15px #faf5f5, 
+             -5px -5px 15px #faf5f5;
+ }
+
+.popup.active .content {
+transition: all 300ms ease-in-out;
+transform: translate(-50%,-50%) scale(1);
+}
+
+h1 {
+ text-align: center;
+ font-size: 32px;
+ font-weight: 600;
+ padding-top: 20px;
+ padding-bottom: 10px;
+}
+
+a {
+ font-weight: 600;
+ color: white;
+}
+
+.input-field .validate {
+padding: 5px;
+font-size: 26px;
+border-radius: 10px;
+border: none;
+margin-bottom: 15px;
+color: #fcffff;
+background: #262626;
+box-shadow: inset 5px 5px 5px #232323, 
+            inset -5px -5px 5px #292929;
+outline: none;
+}
+
+.first-button {
+color: white;
+font-size: 18px;
+font-weight: 500;
+padding: 30px 50px;
+border-radius: 40px;
+border: none;
+position: absolute;
+top: 50%;
+left: 20%;
+transform: translate(-50%, -50%);
+background: #262626;
+box-shadow:  18px 18px 25px #1e1e1e, 
+             -15px -15px 25px #1e1e1e;
+transition: box-shadow .35s ease !important;
+outline: none;
+}
+
+.first-button:active {  
+background: linear-gradient(145deg, #222222, #292929);
+box-shadow:  5px 5px 10px #262626, 
+             -5px -5px 10px #262626;
+border: none;
+}
+
+.second-button {
+color: white;
+font-size: 18px;
+font-weight: 500;
+margin-top: 20px;
+padding: 20px 30px;
+border-radius: 40px;
+border: none;
+background: #262626;
+box-shadow:  8px 8px 15px #202020, 
+             -8px -8px 15px #2c2c2c;
+transition: box-shadow .35s ease !important;
+outline: none;
+}
+
+.second-button:active{
+background: linear-gradient(145deg,#222222, #292929);
+box-shadow: 5px 5px 10px #262626, -5px -5px 10px #262626;
+border: none;
+outline: none;
+}
+p{
+color: #bfc0c0;
+padding: 20px;
+}
+	</style>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>GetNoti</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="index.html">GetNoti</a></h1>
+      
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="index.html" style="color:skyblue;">Home</a></li>
+          <li><a class="nav-link scrollto" href="about.html" style="color:skyblue;">About</a></li>
+          <li><a class="nav-link scrollto" href="services.html" style="color:skyblue;">Services</a></li>
+          <li  class="nav-link scrollto" onclick="togglePopup()" name="se" style="color:skyblue;">Contact</li>
+          <li class="dropdown"><a href="#" style="color:skyblue;"><span>Login/signup</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a  href="admin2/login.php" >Admin Login</a></li>
+              <li class="dropdown"><a href=""><span>User/clients</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="signlogin.html">Intern Login</a></li>
+                  <li><a href="#">Trainee Login</a></li>
+                  <li><a href="#">client login</a></li>
+                  
+              
+          <li><a class="nav-link scrollto" href="#contact" style="color:skyblue;">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>We keep you updated!</h1>
+          <h2>We make you an expert</h2>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="#about" class="btn-get-started scrollto">GET STARTED</a>
+            
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="assets/img/getiti.jpg" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  
+
+  <div class="popup" id="popup-1">
+    <div class="content">
+     <div class="close-btn" onclick="togglePopup()">
+      ×</div>
+ 
+ <h4>send your message to us</h4> 
+ <form action="admin2/code.php" method="POST">
+   <div class="input-field"><input placeholder="Email" class="validate" name ="email"></div>
+   <div class="input-field"><textarea class=" validate" name="message" rows="3" required placeholder="leave your message"></textarea></div>
+     <button class="second-button" name="se">Send</button>
+     <!--<p>Don't have an account? <a href="/signup.html">Sign Up</a></p>-->
+ 
+ 
+    </div>
+   </div>
+   <!--<button onclick="togglePopup()" class="first-button">Sign In</button>-->
+  </form>
+   <script type="text/javascript">
+      function togglePopup() {
+  document.getElementById("popup-1")
+   .classList.toggle("active");
+ }
+   </script>
+
+  <!-- ======= Footer ======= -->
+
+  <footer id="footer">
+
+  
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>GetNoti</h3>
+            <p>
+              KN112st <br>
+              KIGALI, RWANDA<br>
+              United States <br><br>
+              <strong>Phone:</strong> +250784742054<br>
+              <strong>Email:</strong> getnoti@gmmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+            
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <p> If you need to get some other information from us, you can reach on us via the following social medias</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Denyse</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        
+        Designed by Denyse Dufitimana</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
